@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Navigation -->
   <header>
     <nav class="navbar">
       <div class="logo-container">
@@ -30,6 +31,7 @@
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section id="hero" class="hero">
     <img src="hero.jpg" alt="Rider jumps electric bike over a hill" class="hero-img" />
     <div class="hero-overlay">
@@ -44,22 +46,98 @@
     </div>
   </section>
 
-  <!-- ... rest of the content (experiences, about, gallery, testimonials) ... -->
+  <!-- Experiences Section -->
+  <section id="experiences" class="experiences">
+    <h2>Our Experiences</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Stark Varg Experience</h3>
+        <img src="gallery1.jpg" alt="Rider on a Stark Varg electric bike" />
+        <p>Experience the world’s most powerful electric off-road bike with 80 hp, 938 Nm torque and 100+ power modes.</p>
+        <a href="app.acuityscheduling.com/schedule.php?owner=34186640" class="btn">Book Stark Varg</a>
+      </div>
+      <div class="card">
+        <h3>Honda CRF230F Experience</n3>
+        <img src="gallery2.jpg" alt="Honda CRF230F dirt bike" />
+        <p>Enjoy the classic 223 cc off-road machine producing 18 hp and 18.8 Nm of torque, perfect for all skill levels.</p>
+        <a href="app.acuityscheduling.com/schedule.php?owner=34186640" class="btn">Book CRF230F</a>
+      </div>
+      <div class="card">
+        <h3>Own-Bike Sessions</h3>
+        <img src="gallery3.jpg" alt="Rider with own bike at Enduro Hub" />
+        <p>Bring your own bike and tackle our 250-acre course with coaching and support from our expert team.</p>
+        <a href="app.acuityscheduling.com/schedule.php?owner=34186640" class="btn">Book Own-Bike</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>Enduro Hub Experience is a premier off-road venue based in Cheshire. We offer electric Stark Varg days, classic CRF230F sessions, and allow riders to bring their own bikes.</p>
+      <ul class="contact-info">
+        <li><strong>Location:</strong> Walnut Tree Farm, CW2 5PQ, Crewe, UK (W3W: rapid.increases.cycles)</li>
+        <li><strong>Contact:</strong> <a href="mailto:info@endurohubexperience.co.uk">info@endurohubexperience.co.uk</a></li>
+      </ul>
+    </div>
+    <div class="about-image">
+      <img src="about.jpg" alt="Track obstacles at Enduro Hub" />
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="gallery1.jpg" alt="Stark Varg on trail" />
+      <img src="gallery2.jpg" alt="Honda CRF230F by the lake" />
+      <img src="gallery3.jpg" alt="Forest water crossing" />
+      <img src="gallery4.jpg" alt="Red bikes parked" />
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial">
+      <p class="quote">“An unforgettable day! The Stark Varg was so powerful yet silent; the coaching was top-notch and the trails were beautiful.”</p>
+      <p class="author">— Spring 2025 attendee</p>
+    </div>
+    <div class="testimonial">
+      <p class="quote">“Challenging terrain, water crossings and forest sections made this the most fun I’ve had on two wheels.”</p>
+      <p class="author">— Summer 2025 rider</p>
+    </div>
+    <div class="testimonial">
+      <p class="quote">“Great tuition and full safety gear included. The venue’s scenery is incredible.”</p>
+      <p class="author">— Autumn 2025 participant</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact & Location</h2>
+    <p>For bookings, questions or group events, reach out via email or visit our booking link:</p>
+    <p><a href="app.acuityscheduling.com/schedule.php?owner=34186640" class="btn">Book Now</a></p>
+    <p><strong>Email:</strong> info@endurohubexperience.co.uk</p>
+    <p><strong>Address:</strong> Walnut Tree Farm, CW2 5PQ, Crewe, UK</p>
+    <div class="map">
+      <!-- Embed Google Map or what3words widget here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Enduro Hub Experience. All rights reserved.</p>
   </footer>
 
   <!-- Sticky Instagram contact button -->
-  <a href="https://www.instagram.com/enduro_hub_experience/"
-     class="insta-contact"
-     target="_blank"
-     rel="noopener">
+  <a href="https://www.instagram.com/enduro_hub_experience/" class="insta-contact" target="_blank" rel="noopener">
     Message us on Instagram
   </a>
 
   <script>
-    // Burger menu toggle
+    // Burger menu toggle for mobile
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     burger.addEventListener('click', () => {
