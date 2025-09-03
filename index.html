@@ -39,16 +39,16 @@ console.log("test");
       items.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
       console.log("first item img = " + items[0].url);
       // for (const it of items) {
-      //   const card = document.createElement('div');
-      //   card.className = 'card';
+        const card = document.createElement('div');
+        card.className = 'card';
 
-      //   const img = document.createElement('img');
-      //   img.loading = 'lazy';
+        const img = document.createElement('img');
+        img.loading = 'lazy';
       //   img.alt = it.name || 'Image';
-      //   img.src = `${it.url}`; // cache-buster
+        img.src = `${items[0].url}`; // cache-buster
 
-      //   card.appendChild(img);
-      //   grid.appendChild(card);
+        card.appendChild(img);
+        grid.appendChild(card);
       // }
   }
 </script>
