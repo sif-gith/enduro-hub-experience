@@ -6,6 +6,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Enduro Hub Experience</title>
     <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+var url = "https://script.google.com/macros/s/AKfycbyncQ0CqGoJnHZO8nbU7kVafbDU-05MKWXmXCcZpO4AlTEv_fqFfnARyI0c_qOGkXfc/exec?callback=loadData";
+// Make an AJAX call to Google Script
+jQuery.ajax({
+crossDomain: true,
+url: url,
+method: "GET",
+dataType: "jsonp"
+});
+
+console.log("test");
+ // log the returned data
+  function loadData(e) {
+      console.log(e);
+      const items = (e && e.items) ? e.items : [];
+      const grid = document.getElementById('gallery_live');
+      const emptyMsg = document.getElementById('gallery-empty');
+
+      // grid.innerHTML = 'Test';
+
+      if (!items.length) {
+        emptyMsg.style.display = 'block';
+        console.log("no items");
+        return;
+      }
+      console.log("items found");
+      // emptyMsg.style.display = 'none';
+
+      // newest first
+      items.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+      console.log("first item img = " + items[0].url);
+      // for (const it of items) {
+      //   const card = document.createElement('div');
+      //   card.className = 'card';
+
+      //   const img = document.createElement('img');
+      //   img.loading = 'lazy';
+      //   img.alt = it.name || 'Image';
+      //   img.src = `${it.url}`; // cache-buster
+
+      //   card.appendChild(img);
+      //   grid.appendChild(card);
+      // }
+  }
+</script>
+<script>
+  var imageURL = "https://drive.google.com/uc?export=view&id=1M1itKCwSVj6pzJSf_aUtEJZ5FY8tLKFd";
+var url = "https://script.google.com/macros/s/AKfycbzSJjC5M-qc0mUmXSWteYOOrWFHyZFazRfry7VutLT5VHkHyN8amCfY8PssNCcId1Lj5g/exec?" + imageURL;
+async function fetchData() {
+  console.log("fetching data from " + imageURL);
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data); // Log the fetched data
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+fetchData();
+  
+</script>
+<!-- <script>
+  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyYCETQkYQoOAGeD1KphEiJLKFGSE_kJ-sQMqhyM5ShrK_220nIsIsVBl5LvI6ZX8vT/exec';
+
+  async function loadGallery() {
+    try {
+      const res = await fetch(ENDPOINT, { cache: 'no-cache' });
+      const data = await res.json();
+      const items = (data && data.items) ? data.items : [];
+      const grid = document.getElementById('gallery_live');
+      const emptyMsg = document.getElementById('gallery-empty');
+
+      // grid.innerHTML = 'Test';
+      // if (!items.length) {
+      //   emptyMsg.style.display = 'block';
+      //   return;
+      // }
+      // emptyMsg.style.display = 'none';
+
+      // // newest first
+      // items.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+
+      for (const it of items) {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.alt = it.name || 'Image';
+        img.src = `${it.url}`; // cache-buster
+
+        card.appendChild(img);
+        grid.appendChild(card);
+      }
+    } catch (e) {
+      console.error(e);
+      const emptyMsg = document.getElementById('gallery-empty');
+      emptyMsg.textContent = 'Could not load gallery.';
+      emptyMsg.style.display = 'block';
+    }
+  } -->
+
+  <!-- // loadGallery();
+  // Optional auto-refresh every minute:
+  // setInterval(loadGallery, 60000); -->
+<!-- </script> -->
   </head>
   <body>
     <header>
@@ -130,15 +237,37 @@
 
     
     <!-- Gallery Section Google Drive-->
-    <section id="gallery_google_drive" class="gallery">
+    <section>
       <h2>Gallery</h2>
       <p>See moments from our rides and the stunning landscape.</p>
-      <div class="gallery-grid">
+      <div id="gallery_live" class="gallery-grid">
         <!-- Placeholder images; replace with actual Instagram photos -->
-        <iframe src="https://drive.google.com/file/d/1M1itKCwSVj6pzJSf_aUtEJZ5FY8tLKFd/preview" width="640" height="480" allow="autoplay"></iframe>
-        <iframe src="https://drive.google.com/embeddedfolderview?id=1f6eJAGEWVoONjVXivb-5VZA2YrdUPoyy#list" width="100%" height="400" frameborder="0"></iframe>
+        <!-- <img src="gallery1.jpg" alt="Row of electric motocross bikes" />
+        <img src="gallery2.jpg" alt="Rider under bridge crossing a creek" />-->
+        <!-- <img src="https://drive.google.com/uc?export=view&id=1M1itKCwSVj6pzJSf_aUtEJZ5FY8tLKFd" alt="Rider splashing through forest stream" /> -->
+        <img src="gallery4.jpg" alt="Electric bike outside cabin" />
       </div>
     </section>
+
+<!-- <style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    align-items: start;
+  }
+  .card {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    background: #fff;
+  }
+  .card img { width: 100%; height: auto; display: block; border-radius: 8px; }
+  .empty { color: #666; text-align: center; margin: 24px 0; }
+</style> -->
+
+
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
