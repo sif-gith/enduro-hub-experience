@@ -210,13 +210,17 @@ a {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
   margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .gallery-grid img {
   width: 100%;
+  max-width: 200px;
   height: 180px;
   object-fit: cover;
   border-radius: 6px;

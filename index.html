@@ -6,118 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Enduro Hub Experience</title>
     <link rel="stylesheet" href="style.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-var url = "https://script.google.com/macros/s/AKfycbyncQ0CqGoJnHZO8nbU7kVafbDU-05MKWXmXCcZpO4AlTEv_fqFfnARyI0c_qOGkXfc/exec?callback=loadData";
-// Make an AJAX call to Google Script
-jQuery.ajax({
-crossDomain: true,
-url: url,
-method: "GET",
-dataType: "jsonp"
-});
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <script src="scripts.js"></script>
 
-console.log("test");
- // log the returned data
-  function loadData(e) {
-      console.log(e);
-      const items = (e && e.items) ? e.items : [];
-      const grid = document.getElementById('gallery_live');
-      const emptyMsg = document.getElementById('gallery-empty');
+  <script>  
+    getImages();
+  </script>   
 
-      // grid.innerHTML = 'Test';
-
-      if (!items.length) {
-        emptyMsg.style.display = 'block';
-        console.log("no items");
-        return;
-      }
-      console.log("items found");
-      // emptyMsg.style.display = 'none';
-
-      // newest first
-      items.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
-      console.log("first item img = " + items[0].url);
-      // for (const it of items) {
-        const card = document.createElement('div');
-        card.className = 'card';
-
-        const img = document.createElement('img');
-        img.loading = 'lazy';
-      //   img.alt = it.name || 'Image';
-        img.src = `${items[0].url}`; // cache-buster
-
-        card.appendChild(img);
-        grid.appendChild(card);
-      // }
-  }
-</script>
-<!-- <script>
-  var imageURL = "https://drive.google.com/uc?export=view&id=1M1itKCwSVj6pzJSf_aUtEJZ5FY8tLKFd";
-var url = "https://script.google.com/macros/s/AKfycbzSJjC5M-qc0mUmXSWteYOOrWFHyZFazRfry7VutLT5VHkHyN8amCfY8PssNCcId1Lj5g/exec?" + imageURL;
-async function fetchData() {
-  console.log("fetching data from " + imageURL);
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data); // Log the fetched data
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-}
-fetchData();
-  
-</script> -->
-<!-- <script>
-  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyYCETQkYQoOAGeD1KphEiJLKFGSE_kJ-sQMqhyM5ShrK_220nIsIsVBl5LvI6ZX8vT/exec';
-
-  async function loadGallery() {
-    try {
-      const res = await fetch(ENDPOINT, { cache: 'no-cache' });
-      const data = await res.json();
-      const items = (data && data.items) ? data.items : [];
-      const grid = document.getElementById('gallery_live');
-      const emptyMsg = document.getElementById('gallery-empty');
-
-      // grid.innerHTML = 'Test';
-      // if (!items.length) {
-      //   emptyMsg.style.display = 'block';
-      //   return;
-      // }
-      // emptyMsg.style.display = 'none';
-
-      // // newest first
-      // items.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
-
-      for (const it of items) {
-        const card = document.createElement('div');
-        card.className = 'card';
-
-        const img = document.createElement('img');
-        img.loading = 'lazy';
-        img.alt = it.name || 'Image';
-        img.src = `${it.url}`; // cache-buster
-
-        card.appendChild(img);
-        grid.appendChild(card);
-      }
-    } catch (e) {
-      console.error(e);
-      const emptyMsg = document.getElementById('gallery-empty');
-      emptyMsg.textContent = 'Could not load gallery.';
-      emptyMsg.style.display = 'block';
-    }
-  } -->
-
-  <!-- // loadGallery();
-  // Optional auto-refresh every minute:
-  // setInterval(loadGallery, 60000); -->
-<!-- </script> -->
   </head>
   <body>
     <header>
       <nav class="navbar">
-        <div class="logo">Enduro Hub Experience</div>
+        <div class="logo">
+          <img src="logo34186640.png" alt="Enduro Hub Experience Logo" />
+        </div>
         <ul class="nav-links">
           <li><a href="#hero">Home</a></li>
           <li><a href="#experiences">Experiences</a></li>
@@ -135,6 +37,7 @@ fetchData();
         </div>
       </nav>
     </header>
+
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
@@ -156,44 +59,37 @@ fetchData();
         <div class="card">
           <h3>Stark Varg Experience</h3>
           <p>
-            Discover the world’s most powerful electric off‑road bike. With up to
-            80&nbsp;hp, 938&nbsp;Nm of torque and over 100 power modes, the Stark Varg
-            delivers silent, zero‑emission thrills.
+            The Stark Varg is an all electric offroad bike, fully automatic & has different power modes to suit rider ability. These bikes are the market leader in offroad electric motorcycle's & you will not be disappointed when riding one! This day includes all the necessary kit & equipment to ride.
           </p>
-          <ul>
-            <li>Smartphone dashboard &amp; custom power settings</li>
-            <li>Lightweight (≈110&nbsp;kg) for agile handling</li>
-            <li>Guided trails &amp; all riding gear included</li>
-          </ul>
-          <a href="#contact" class="btn">Book Now</a>
+          <a href="https://app.acuityscheduling.com/schedule/b9bfb27a" class="btn">Book Now</a>
         </div>
         <div class="card">
           <h3>CRF230F Experience</h3>
           <p>
-            Enjoy the classic feel of a proven off‑road machine. Our
-            Honda&nbsp;CRF230F packages feature a 223&nbsp;cc single‑cylinder engine
-            producing around 18&nbsp;hp and 18.8&nbsp;Nm of torque.
+            The Honda CRF230 is an air cooled, manual, 4-stroke offroad bike. Its low seat height & smooth useable power make it perfect for beginners, younger riders or people who are shorter in the leg. This day includes all the necessary kit & equipment to ride.
           </p>
-          <ul>
-            <li>Manual 6‑speed gearbox &amp; off‑road chassis</li>
-            <li>Perfect for riders who love the sound of a petrol motor</li>
-            <li>Guided instruction &amp; protective equipment included</li>
-          </ul>
-          <a href="#contact" class="btn">Book Now</a>
+          <a href="https://app.acuityscheduling.com/schedule/b9bfb27a" class="btn">Book Now</a>
         </div>
         <div class="card">
           <h3>Own‑Bike Sessions</h3>
           <p>
-            Already have your own enduro machine? Bring it along and enjoy
-            unrestricted access to our diverse terrain. Coaching and
-            refreshments available on site.
+            Already have your own enduro machine? ENDURO BIKES ONLY. Please note for an own bike day to run there needs to be at least 4 bookings. If we don't reach the minimum of 4 riders then the day may be cancelled & will be refunded or have the chance to reschedule.
           </p>
-          <ul>
-            <li>250‑acre venue with varied woodland &amp; fields</li>
-            <li>Optional guidance from experienced coaches</li>
-            <li>Ideal for groups and corporate days</li>
-          </ul>
-          <a href="#contact" class="btn">Book Now</a>
+          <a href="https://app.acuityscheduling.com/schedule/b9bfb27a" class="btn">Book Now</a>
+        </div>
+        <div class="card">
+          <h3>Kawasaki KLX140 Experience Day</h3>
+          <p>
+            The Kawasaki KLX140 is an air cooled, manual, 4-stroke offroad bike. Its low seat height & smooth useable power make it perfect for beginners, younger riders or people who are shorter in the leg. This day includes all the necessary kit & equipment to ride.
+          </p>
+          <a href="https://app.acuityscheduling.com/schedule/b9bfb27a" class="btn">Book Now</a>
+        </div>
+        <div class="card">
+          <h3>Own Bike & Stark Try Out</h3>
+          <p>
+            This is an own bike day with the opportunity to test a stark varg. You will spend the morning riding your own bike & then after lunch get to spend some time testing a stark varg.
+          </p>
+          <a href="https://app.acuityscheduling.com/schedule/b9bfb27a" class="btn">Book Now</a>
         </div>
       </div>
     </section>
@@ -203,12 +99,7 @@ fetchData();
       <div class="about-content">
         <h2>About Us</h2>
         <p>
-          Based in Alsager, Cheshire, the Enduro Hub Experience is set across
-          over 250 acres of countryside. Our mission is to introduce riders of
-          all levels to the exhilaration of off‑road riding while embracing
-          innovative electric technology. Whether you choose the ultra‑quiet,
-          zero‑emission Stark Varg or the trusty Honda CRF230F, you’ll receive
-          professional guidance and top‑quality gear.
+          Enduro Hub Experience is based on over 250 acres of wonderful Cheshire countryside. Our experience days include the bike, all the necessary riding kit and training/guidance with riding where needed. These days are perfect for either complete newbies, experienced riders or anyone in between. Whilst out riding you will come across woodlands, stream crossings, hills, bridges, tunnels, flowing fields and more! We also offer own bike days were you can bring your own Enduro bike and ride for the day with one of our guides. Throughout the day you will get the chance to ride all the different section's/obstacle's. If you want to stay riding one particular section or revisit a section then that's fine and we can do so.
         </p>
         <p>
           We’re passionate about preserving the environment. Electric bikes
@@ -223,29 +114,29 @@ fetchData();
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
+    <!-- <section id="gallery" class="gallery">
       <h2>Gallery</h2>
       <p>See moments from our rides and the stunning landscape.</p>
       <div class="gallery-grid">
-        <!-- Placeholder images; replace with actual Instagram photos -->
+        Placeholder images; replace with actual Instagram photos 
         <img src="gallery1.jpg" alt="Row of electric motocross bikes" />
         <img src="gallery2.jpg" alt="Rider under bridge crossing a creek" />
         <img src="gallery3.jpg" alt="Rider splashing through forest stream" />
         <img src="gallery4.jpg" alt="Electric bike outside cabin" />
       </div>
-    </section>
+    </section>-->
 
     
     <!-- Gallery Section Google Drive-->
-    <section>
+    <section id="gallery" class="gallery">
       <h2>Gallery</h2>
       <p>See moments from our rides and the stunning landscape.</p>
-      <div id="gallery_live" class="gallery-grid">
+      <div id="gallery-grid" class="gallery-grid">
         <!-- Placeholder images; replace with actual Instagram photos -->
         <!-- <img src="gallery1.jpg" alt="Row of electric motocross bikes" />
         <img src="gallery2.jpg" alt="Rider under bridge crossing a creek" />-->
         <!-- <img src="https://drive.google.com/uc?export=view&id=1M1itKCwSVj6pzJSf_aUtEJZ5FY8tLKFd" alt="Rider splashing through forest stream" /> -->
-        <img src="gallery4.jpg" alt="Electric bike outside cabin" />
+        <!-- <img src="gallery4.jpg" alt="Electric bike outside cabin" /> -->
       </div>
     </section>
 
